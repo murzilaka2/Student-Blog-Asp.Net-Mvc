@@ -1,0 +1,27 @@
+﻿
+<div class="bg-primary bg-gradient rounded-3 p-4 p-sm-6">
+    <div class="mb-4 mb-xl-0">
+        <div class="fs-3 fw-bold text-white">Любите читать?</div>
+        <div class="text-white-50">Подпишитесь на нашу новостную рассылку для получения свежих поступлений.</div>
+    </div>
+    <div class="mt-2"></div>
+    <form class="input-group newsletter_form" asp-controller="Home" asp-action="Subscribe"
+          data-ajax-loading="#spinner" data-ajax-update="#updateDiv" data-ajax="true" method="post">
+
+        <div class="mb-2 w-100 d-grid gap-2">
+            <input class="form-control" type="email" name="email" placeholder="Email..." required>
+            <button class="btn btn-outline-light" type="submit">Подписаться</button>
+        </div>
+
+    </form>
+
+    <div class="mt">
+        <span id="spinner" style="display:none;">Оформляем...</span>
+        <p class="mb-2" id="updateDiv"></p>
+    </div>
+
+    <div class="small text-white-50">Мы заботимся о конфиденциальности и никогда не передаем ваши данные.</div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/subscribe/jquery.unobtrusive-ajax.min.js"></script>

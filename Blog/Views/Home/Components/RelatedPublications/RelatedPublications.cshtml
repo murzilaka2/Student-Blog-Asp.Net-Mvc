@@ -1,0 +1,38 @@
+﻿@using Blog.Helpers;
+@model IEnumerable<Publication>
+
+
+<section class="py-3">
+    <div class="col-lg-12">
+        <div class="mb-3">
+            <h3>Читайте также</h3>
+            <hr class="mb-4">
+        </div>
+
+        <div class="row gx-4 gx-lg-4 row-cols-2 row-cols-md-4 row-cols-xl-4 justify-content-center">
+
+            @foreach (Publication publication in Model)
+            {
+                <div class="col mb-5">
+                    <div class="card h-100">
+
+                        <a href="@Url.Action(action: "GetPublication", controller: "Home", values: new { id = publication.Id, returnUrl = ViewContext.HttpContext.Request.PathAndQuery()},
+                    protocol: "https")">
+                            @if (@publication.Image != null)
+                            {
+                                <img class="card-img-top" src="@publication.Image" alt="@publication.Title">
+                            }
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h6 class="fw-bolder">@publication.Title</h6>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            }
+        </div>
+        <hr class="mb-4">
+    </div>
+</section>
